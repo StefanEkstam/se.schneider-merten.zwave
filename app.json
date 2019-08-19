@@ -1,0 +1,183 @@
+{
+  "id": "se.schneider-connect.zwave",
+  "version": "0.0.1",
+  "sdk": 2,
+  "brandcolor":  "#ff0000",
+  "name": {
+    "en": "Schneider/Merten Connect"
+  },
+  "description": {
+    "en": "Adds support for Schneider/Merten Connect Z-Wave devices"
+  },
+  "category": [
+    "appliances",
+    "lights"
+  ],
+  "tags": {
+    "en": [ "schneider", "merten", "schneider connect", "merten connect" ]
+  },
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "compatibility": ">=1.5.0",
+  "author": {
+    "name": "Stefan Ekstam",
+    "email": "stefan.ekstam@digitalkraft.se"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Stefan Ekstam",
+        "email": "stefan.ekstam@digitalkraft.se"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "MTN507900",
+      "class": "light",
+      "name": {
+        "en": "MTN507900 universal-dimmer"
+      },
+      "capabilities": [
+        "dim",
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/MTN507900/assets/images/large.jpg",
+        "small": "/drivers/MTN507900/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 16387,
+        "productId": 2,
+        "learnmode": {
+          "image": "/drivers/MTN507900/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the Z-Wave button on your dimmer three times"
+          }
+        },
+        "associationGroups": [
+          1,
+          2
+        ]
+      },
+      "settings": [
+        {
+          "id": "196",
+          "type": "number",
+          "zwave": {
+            "index": 196,
+            "size": 1
+          },
+          "label": {
+            "en": "Dimming Speed"
+          },
+          "value": 0,
+          "min": 0,
+          "hint": {
+            "en": "Dimming speed, 0 = fastest, 240 = slowest"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ELJ057118",
+      "class": "sensor",
+      "name": {
+        "en": "ELJ057118 double pushbutton"
+      },
+      "capabilities": [
+        "measure_battery"
+      ],
+      "images": {
+        "large": "/drivers/ELJ057118/assets/images/large.jpg",
+        "small": "/drivers/ELJ057118/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 1,
+        "productId": 4,
+        "learnmode": {
+          "image": "/drivers/ELJ057118/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the Z-Wave button on your xxx three times"
+          }
+        },
+        "associationGroups": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "settings": [
+        {
+          "id": "0",
+          "type": "number",
+          "zwave": {
+            "index": 0,
+            "size": 1
+          },
+          "label": {
+            "en": "0 - Upper left button"
+          },
+          "value": 0,
+          "min": 0,
+          "hint": {
+            "en": "Config"
+          }
+        },
+        {
+          "id": "1",
+          "type": "number",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "label": {
+            "en": "1 - Lower left button"
+          },
+          "value": 0,
+          "min": 0,
+          "hint": {
+            "en": "Config"
+          }
+        },
+        {
+          "id": "2",
+          "type": "number",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "label": {
+            "en": "2 - Upper right button"
+          },
+          "value": 0,
+          "min": 0,
+          "hint": {
+            "en": "Config"
+          }
+        },
+        {
+          "id": "3",
+          "type": "number",
+          "zwave": {
+            "index": 3,
+            "size": 1
+          },
+          "label": {
+            "en": "3 - Lower right button"
+          },
+          "value": 0,
+          "min": 0,
+          "hint": {
+            "en": "Config"
+          }
+        }
+      ]
+    }
+  ]
+}
