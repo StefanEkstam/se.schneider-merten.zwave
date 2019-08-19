@@ -45,8 +45,8 @@
         "onoff"
       ],
       "images": {
-        "large": "/drivers/MTN507900/assets/images/large.jpg",
-        "small": "/drivers/MTN507900/assets/images/small.jpg"
+        "large": "/drivers/MTN507900/assets/images/large.png",
+        "small": "/drivers/MTN507900/assets/images/small.png"
       },
       "zwave": {
         "manufacturerId": 122,
@@ -91,8 +91,8 @@
       "capabilities": [
       ],
       "images": {
-        "large": "/drivers/MTN50X1XX/assets/images/large.jpg",
-        "small": "/drivers/MTN50X1XX/assets/images/small.jpg"
+        "large": "/drivers/MTN50X1XX/assets/images/large.png",
+        "small": "/drivers/MTN50X1XX/assets/images/small.png"
       },
       "zwave": {
         "manufacturerId": 122,
@@ -143,7 +143,7 @@
           }
         }
       ]
-    }
+    },
     {
       "id": "MTN50X2XX",
       "class": "sensor",
@@ -153,8 +153,8 @@
       "capabilities": [
       ],
       "images": {
-        "large": "/drivers/MTN50X2XX/assets/images/large.jpg",
-        "small": "/drivers/MTN50X2XX/assets/images/small.jpg"
+        "large": "/drivers/MTN50X2XX/assets/images/large.png",
+        "small": "/drivers/MTN50X2XX/assets/images/small.png"
       },
       "zwave": {
         "manufacturerId": 122,
