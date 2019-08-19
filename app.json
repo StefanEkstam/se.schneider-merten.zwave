@@ -36,10 +36,10 @@
   "drivers": [
     {
       "id": "MTN507900",
-      "class": "light",
       "name": {
         "en": "MTN507900 universal-dimmer"
       },
+      "class": "light",
       "capabilities": [
         "dim",
         "onoff"
@@ -83,26 +83,87 @@
       ]
     },
     {
-      "id": "ELJ057118",
+      "id": "MTN50X1XX",
       "class": "sensor",
       "name": {
-        "en": "ELJ057118 double pushbutton"
+        "en": "Radio push-button, 1-gang"
       },
       "capabilities": [
-        "measure_battery"
       ],
       "images": {
-        "large": "/drivers/ELJ057118/assets/images/large.jpg",
-        "small": "/drivers/ELJ057118/assets/images/small.jpg"
+        "large": "/drivers/MTN50X1XX/assets/images/large.jpg",
+        "small": "/drivers/MTN50X1XX/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 1,
+        "productId": 44444,
+        "learnmode": {
+          "image": "/drivers/MTN50X1XX/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press any button on your device three times"
+          }
+        },
+        "associationGroups": [
+          1,
+          2
+        ]
+      },
+      "settings": [
+        {
+          "id": "0",
+          "type": "number",
+          "zwave": {
+            "index": 0,
+            "size": 1
+          },
+          "label": {
+            "en": "0 - Upper button"
+          },
+          "value": 0,
+          "min": 0,
+          "hint": {
+            "en": "Config"
+          }
+        },
+        {
+          "id": "1",
+          "type": "number",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "label": {
+            "en": "1 - Lower button"
+          },
+          "value": 0,
+          "min": 0,
+          "hint": {
+            "en": "Config"
+          }
+        }
+      ]
+    }
+    {
+      "id": "MTN50X2XX",
+      "class": "sensor",
+      "name": {
+        "en": "Radio push-button, 2-gang"
+      },
+      "capabilities": [
+      ],
+      "images": {
+        "large": "/drivers/MTN50X2XX/assets/images/large.jpg",
+        "small": "/drivers/MTN50X2XX/assets/images/small.jpg"
       },
       "zwave": {
         "manufacturerId": 122,
         "productTypeId": 1,
         "productId": 4,
         "learnmode": {
-          "image": "/drivers/ELJ057118/assets/learnmode.svg",
+          "image": "/drivers/MTN50X2XX/assets/learnmode.svg",
           "instruction": {
-            "en": "Press the Z-Wave button on your xxx three times"
+            "en": "Press any button on your device three times"
           }
         },
         "associationGroups": [

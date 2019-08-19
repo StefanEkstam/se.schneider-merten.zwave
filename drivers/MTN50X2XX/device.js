@@ -9,10 +9,10 @@ var isDimmingDown = false;
 
 //**********************************************************************
 //
-// ELJ057118
+// MTN50X2XX
 //
 //**********************************************************************
-class ELJ057118 extends ZwaveDevice {
+class MTN50X2XX extends ZwaveDevice {
 
     // This device has no capabilities of its own.
     // It can not receive any specific commands.
@@ -652,4 +652,4 @@ this.log('Device: ready...');
     */
 }
 
-module.exports = ELJ057118;
+module.exports = MTN50X2XX;

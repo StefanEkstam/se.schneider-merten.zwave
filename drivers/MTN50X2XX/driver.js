@@ -3,14 +3,15 @@
 const Homey = require('homey');
 
 //----------------------------------------------------------------------
-// ELJ057118
+// MTN50X2XX
 //----------------------------------------------------------------------
-class ELJ057118 extends Homey.Driver {
+class MTN50X2XX extends Homey.Driver {
 
     onInit() {
-        this.log('ELJ057118: driver.js: init...');
+        this.log('MTN50X2XX: driver.js: init...');
+        super.onInit();
     }
 
 }
 
-module.exports = ELJ057118;
+module.exports = MTN50X2XX;
