@@ -51,7 +51,7 @@ this.log('Device: onMeshInit...');
         this.enableDebug();
 
         // Print information about the device's available commands
-        //this.printNode();
+        this.printNode();
 
 
         //----------------------------------------------------------------------
@@ -253,10 +253,10 @@ this.log('STEK: configurationGet...');
         );
         this.log(xxx);
 */
-
-        var node = this.node;
-/*
 this.log('getNode...');
+
+
+/*
         Homey.ManagerZwave.getNode(this)
             .catch(node => {
                 this.log("STEK: Error, first catch!");
@@ -317,7 +317,7 @@ this.log('getNode...');
                 this.error;
             });
         */
-
+        /*
         node.CommandClass.COMMAND_CLASS_ASSOCIATION.ASSOCIATION_GET({
         })
             .then(x => {
@@ -341,7 +341,7 @@ this.log('getNode...');
                 this.log("STEK: Error, second catch (MIAG)!");
                 this.error;
             });
-
+        */
                 /*
                 // Inget fel, men returnerar null
                 node.CommandClass.COMMAND_CLASS_VERSION.VERSION_COMMAND_CLASS_GET({
@@ -603,7 +603,7 @@ this.log('...getNode');
     //**********************************************************************
     // onSettings
     //**********************************************************************
-    async onSettings(oldSettings, newSettings, changedKeysArr) {
+    async onSettings_xxx(oldSettings, newSettings, changedKeysArr) {
 this.log('onSettings...');
         // Runs when the user has changed the device's settings in Homey.
         // changedKeysArr contains an array of keys that have been changed
@@ -637,6 +637,25 @@ this.log('onSettings...');
                 .catch(this.error);
         }
         */
+
+/*
+        var node = this.node;
+
+        node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL.SWITCH_MULTILEVEL_GET({
+        })
+            .then(x => {
+                this.log("STEK: Log, second (SMG)!");
+                this.log(x);
+                this.log("----------");
+            })
+            .catch(x => {
+                this.log("STEK: Error, second catch (SMG)!");
+                this.error;
+            });
+*/
+
+
+
         super.onSettings(oldSettings, newSettings, changedKeysArr);
 
 this.log('...onSettings');

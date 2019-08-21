@@ -107,40 +107,146 @@
         "associationGroups": [
           1,
           2
-        ]
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Upper button - For dimming to work, this group can only contain one device id"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Lower button - For dimming to work, this group can only contain one device id"
+            }
+          }
+        }
       },
       "settings": [
         {
-          "id": "0",
-          "type": "number",
-          "zwave": {
-            "index": 0,
-            "size": 1
-          },
+          "type": "group",
           "label": {
-            "en": "0 - Upper button"
+            "en": "Buttons"
           },
-          "value": 0,
-          "min": 0,
-          "hint": {
-            "en": "Config"
-          }
-        },
-        {
-          "id": "1",
-          "type": "number",
-          "zwave": {
-            "index": 1,
-            "size": 1
-          },
-          "label": {
-            "en": "1 - Lower button"
-          },
-          "value": 0,
-          "min": 0,
-          "hint": {
-            "en": "Config"
-          }
+          "children": [
+            {
+              "id": "0",
+              "type": "dropdown",
+              "zwave": {
+                "index": 0,
+                "size": 1
+              },
+              "value": "0",
+              "label": {
+                "en": "Upper button"
+              },
+              "hint": {
+                "en": "Parameter #0"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch on/dim up"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle on/off"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "Retrieve/save scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "Doorbell function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "Toggle shutter up/down"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "Lower shutter on press"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "Raise shutter on press"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "1",
+              "type": "dropdown",
+              "zwave": {
+                "index": 1,
+                "size": 1
+              },
+              "label": {
+                "en": "Lower button"
+              },
+              "value": "0",
+              "hint": {
+                "en": "Parameter #1"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch off/dim down"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle on/off"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "Retrieve/save scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "Doorbell function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "Toggle shutter up/down"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "Lower shutter on press"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "Raise shutter on press"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -171,72 +277,274 @@
           2,
           3,
           4
-        ]
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Upper left button - For dimming to work, this group can only contain one device id"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Lower left button - For dimming to work, this group can only contain one device id"
+            }
+          },
+          "3": {
+            "hint": {
+              "en": "Upper right button - For dimming to work, this group can only contain one device id"
+            }
+          },
+          "4": {
+            "hint": {
+              "en": "Lower right button - For dimming to work, this group can only contain one device id"
+            }
+          }
+        }
       },
       "settings": [
         {
-          "id": "0",
-          "type": "number",
-          "zwave": {
-            "index": 0,
-            "size": 1
-          },
+          "type": "group",
           "label": {
-            "en": "0 - Upper left button"
+            "en": "Buttons"
           },
-          "value": 0,
-          "min": 0,
-          "hint": {
-            "en": "Config"
-          }
-        },
-        {
-          "id": "1",
-          "type": "number",
-          "zwave": {
-            "index": 1,
-            "size": 1
-          },
-          "label": {
-            "en": "1 - Lower left button"
-          },
-          "value": 0,
-          "min": 0,
-          "hint": {
-            "en": "Config"
-          }
-        },
-        {
-          "id": "2",
-          "type": "number",
-          "zwave": {
-            "index": 2,
-            "size": 1
-          },
-          "label": {
-            "en": "2 - Upper right button"
-          },
-          "value": 0,
-          "min": 0,
-          "hint": {
-            "en": "Config"
-          }
-        },
-        {
-          "id": "3",
-          "type": "number",
-          "zwave": {
-            "index": 3,
-            "size": 1
-          },
-          "label": {
-            "en": "3 - Lower right button"
-          },
-          "value": 0,
-          "min": 0,
-          "hint": {
-            "en": "Config"
-          }
+          "children": [
+            {
+              "id": "0",
+              "type": "dropdown",
+              "zwave": {
+                "index": 0,
+                "size": 1
+              },
+              "value": "0",
+              "label": {
+                "en": "Upper left button"
+              },
+              "hint": {
+                "en": "Parameter #0"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch on/dim up"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle on/off"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "Retrieve/save scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "Doorbell function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "Toggle shutter up/down"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "Lower shutter on press"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "Raise shutter on press"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "1",
+              "type": "dropdown",
+              "zwave": {
+                "index": 1,
+                "size": 1
+              },
+              "label": {
+                "en": "Lower left button"
+              },
+              "value": "0",
+              "hint": {
+                "en": "Parameter #1"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch off/dim down"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle on/off"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "Retrieve/save scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "Doorbell function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "Toggle shutter up/down"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "Lower shutter on press"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "Raise shutter on press"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "type": "dropdown",
+              "zwave": {
+                "index": 2,
+                "size": 1
+              },
+              "label": {
+                "en": "Upper right button"
+              },
+              "value": "0",
+              "hint": {
+                "en": "Parameter #2"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch on/dim up"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle on/off"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "Retrieve/save scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "Doorbell function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "Toggle shutter up/down"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "Lower shutter on press"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "Raise shutter on press"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "type": "dropdown",
+              "zwave": {
+                "index": 3,
+                "size": 1
+              },
+              "label": {
+                "en": "Lower right button"
+              },
+              "value": "0",
+              "hint": {
+                "en": "Parameter #3"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch off/dim down"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle on/off"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "Retrieve/save scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "Doorbell function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "Toggle shutter up/down"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "Lower shutter on press"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "Raise shutter on press"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     }

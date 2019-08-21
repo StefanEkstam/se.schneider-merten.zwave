@@ -1,5 +1,5 @@
 ﻿# Schneider/Merten
-This app adds support for Schneider/Merten Connect devices in Homey.
+This app adds support for Schneider/Merten Connect Z-Wave devices in Homey.
 
 ## Known issues
 Older Schneider/Merten Z-Wave devices are very stable, but not always easy to incorporate in home automation projects.
