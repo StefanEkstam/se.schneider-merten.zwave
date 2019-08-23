@@ -36,6 +36,12 @@
     <Content Include="assets\images\small.png" />
     <Content Include="assets\images\z-wave.gif" />
     <Content Include="assets\images\z-wave.png" />
+    <Content Include="drivers\MTN508XXX\assets\icon.svg" />
+    <Content Include="drivers\MTN508XXX\assets\images\large.png" />
+    <Content Include="drivers\MTN508XXX\assets\images\small.png" />
+    <Content Include="drivers\MTN508XXX\assets\learnmode.svg" />
+    <Content Include="drivers\MTN508XXX\device.js" />
+    <Content Include="drivers\MTN508XXX\driver.js" />
     <Content Include="drivers\MTN50X2XX\assets\icon.svg" />
     <Content Include="drivers\MTN50X2XX\assets\images\large.png" />
     <Content Include="drivers\MTN50X2XX\assets\images\small.png" />
@@ -337,6 +343,8 @@
     <Folder Include="assets\" />
     <Folder Include="assets\images\" />
     <Folder Include="drivers\" />
+    <Folder Include="drivers\MTN508XXX\assets\" />
+    <Folder Include="drivers\MTN508XXX\assets\images\" />
     <Folder Include="drivers\MTN50X2XX\assets\" />
     <Folder Include="drivers\MTN50X2XX\assets\images\" />
     <Folder Include="drivers\MTN50X1XX\" />
@@ -346,6 +354,7 @@
     <Folder Include="drivers\MTN507900\assets\" />
     <Folder Include="drivers\MTN507900\assets\images\" />
     <Folder Include="drivers\MTN50X2XX\" />
+    <Folder Include="drivers\MTN508XXX\" />
     <Folder Include="node_modules\" />
     <Folder Include="node_modules\almost-equal\" />
     <Folder Include="node_modules\almost-equal\test\" />

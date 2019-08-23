@@ -37,7 +37,7 @@
     {
       "id": "MTN507900",
       "name": {
-        "en": "MTN507900 universal-dimmer"
+        "en": "Universal dimmer"
       },
       "class": "light",
       "capabilities": [
@@ -83,6 +83,103 @@
       ]
     },
     {
+      "id": "MTN508XXX",
+      "class": "sensor",
+      "name": {
+        "en": "Radio push-button, Move"
+      },
+      "capabilities": [
+      ],
+      "images": {
+        "large": "/drivers/MTN508XXX/assets/images/large.png",
+        "small": "/drivers/MTN508XXX/assets/images/small.png"
+      },
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 2,
+        "productId": 1,
+        "learnmode": {
+          "image": "/drivers/MTN508XXX/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the button on your device three times and wait until the light stops blinking"
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Button - For dimming to work, this group can only contain one device id"
+            }
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Buttons"
+          },
+          "children": [
+            {
+              "id": "0",
+              "type": "dropdown",
+              "zwave": {
+                "index": 0,
+                "size": 1
+              },
+              "value": "4",
+              "label": {
+                "en": "Button"
+              },
+              "hint": {
+                "en": "Parameter #0"
+              },
+              "values": [
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle/dim"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "Retrieve/save scene"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "Doorbell function"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "Toggle shutter up/down"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "Lower shutter on press"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "Raise shutter on press"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "MTN50X1XX",
       "class": "sensor",
       "name": {
@@ -97,7 +194,7 @@
       "zwave": {
         "manufacturerId": 122,
         "productTypeId": 1,
-        "productId": 44444,
+        "productId": 2,
         "learnmode": {
           "image": "/drivers/MTN50X1XX/assets/learnmode.svg",
           "instruction": {
