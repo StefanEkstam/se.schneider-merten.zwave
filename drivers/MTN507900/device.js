@@ -7,43 +7,26 @@ var startDimValue = -1;
 var endDimValue = -1;
 var isDimmingDown = false;
 
-//**********************************************************************
-//
-// MTN507900
-//
-//**********************************************************************
+// MTN507900, Radio receiver, 1-gang universal dimmer
 class MTN507900 extends ZwaveDevice {
 
-    //**********************************************************************
-    // onAdded
-    //**********************************************************************
     async onAdded() {
         // This device has just been added by Homey
         this.log('Device: onAdded...');
     }
 
-    //**********************************************************************
-    // onDeleted
-    //**********************************************************************
     async onDeleted() {
         // This device has just been deleted by Homey
         this.log('Device: onDeleted...');
     }
 
-    //**********************************************************************
-    // onMeshInit
-    //**********************************************************************
     async onMeshInit() {
-this.log('Device: onMeshInit...');
         // Enable debugging
         this.enableDebug();
 
         // Print information about the device's available commands
         //this.printNode();
         
-        //----------------------------------------------------------------------
-        // onoff
-        //----------------------------------------------------------------------
         // External On/off commands will be handled automatically by Homey
         this.registerCapability(
             'onoff',
@@ -52,9 +35,6 @@ this.log('Device: onMeshInit...');
             }
         );
 
-        //----------------------------------------------------------------------
-        // dim
-        //----------------------------------------------------------------------
         // External dimming commands will be handled automatically by Homey,
         // though not perfectly, since the remembered dim value will sometimes
         // be overwritten
@@ -65,7 +45,6 @@ this.log('Device: onMeshInit...');
             }
         );
 
-
         this.registerReportListener(
             'SWITCH_MULTILEVEL',
             'SWITCH_MULTILEVEL_REPORT', (rawReport, parsedReport) => {
@@ -74,7 +53,6 @@ this.log('Device: onMeshInit...');
                 var newOnoffValue = newDimValue > 0;
                 var oldDimValue = this.getCapabilityValue('dim');
                 var oldOnoffValue = this.getCapabilityValue('onoff');
-this.log("STEK onoff, dim, value: ", oldOnoffValue, oldDimValue, newDimValue);
 
                 if (newDimValue !== oldDimValue || newOnoffValue !== oldOnoffValue) {
                     this.setCapabilityValue('onoff', newOnoffValue);
@@ -88,56 +66,10 @@ this.log("STEK onoff, dim, value: ", oldOnoffValue, oldDimValue, newDimValue);
         //await this.configurationSet({ id: '196' }, 0);
     }
 
-    //**********************************************************************
-    // onSettings
-    //**********************************************************************
     async onSettings(oldSettings, newSettings, changedKeysArr) {
-this.log('onSettings...');
-        // Runs when the user has changed the device's settings in Homey.
-        // changedKeysArr contains an array of keys that have been changed
-
-        // If the settings must not be saved for whatever reason:
-        // throw new Error('Your error message');
-
-//this.log(oldSettingsObj, newSettingsObj, changedKeysArr);
-
-        //var arrayLength = changedKeysArr.length;
-//this.log(arrayLength);
-        /*
-        //----------------------------------------------------------------------
-        // Send the changed settings values to the device
-        //----------------------------------------------------------------------
-        for (var i = 0; i < arrayLength; i++) {
-            var key = changedKeysArr[i];
-            var idx = Number(key);
-            var newValue = newSettingsObj[key];
-
-            this.configurationSet(
-                {
-                    "index": idx,
-                    "size": 1,
-                    "id": key,
-                    "signed": false,
-                    "useSettingParser": true
-                },
-                newValue
-            )
-                .catch(this.error);
-        }
-        */
         super.onSettings(oldSettings, newSettings, changedKeysArr);
 
-this.log('...onSettings');
     }
-
-    /*
-    //**********************************************************************
-    // ready
-    //**********************************************************************
-    ready(callback) {
-this.log('Device: ready...');
-    }
-    */
 }
 
 module.exports = MTN507900;

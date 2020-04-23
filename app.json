@@ -1,10 +1,10 @@
 {
-  "id": "se.schneider-connect.zwave",
-  "version": "0.0.1",
+  "id": "se.schneider-connect.zwave-test",
+  "version": "0.0.5",
   "sdk": 2,
-  "brandcolor":  "#ff0000",
+  "brandcolor":  "#330000",
   "name": {
-    "en": "Schneider/Merten Connect"
+    "en": "Schneider/Merten Connect-test"
   },
   "description": {
     "en": "Adds support for Schneider/Merten Connect Z-Wave devices"
@@ -14,7 +14,7 @@
     "lights"
   ],
   "tags": {
-    "en": [ "schneider", "merten", "schneider connect", "merten connect" ]
+    "en": [ "schneider", "merten", "schneider connect", "merten connect", "zwave", "Z-Wave" ]
   },
   "images": {
     "large": "/assets/images/large.png",
@@ -34,6 +34,314 @@
     ]
   },
   "drivers": [
+    {
+      "id": "MTN506004",
+      "class": "sensor",
+      "name": {
+        "en": "Radio transmitter, 4-gang"
+      },
+      "capabilities": [
+      ],
+      "images": {
+        "large": "/drivers/MTN506004/assets/images/large.png",
+        "small": "/drivers/MTN506004/assets/images/small.png"
+      },
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 3,
+        "productId": 4,
+        "learnmode": {
+          "image": "/drivers/MTN506004/assets/learnmode.svg",
+          "instruction": {
+            "en": "Shortcircuit the red channel on your device three times"
+          }
+        },
+        "associationGroups": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Channel one (red)"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Channel two (green)"
+            }
+          },
+          "3": {
+            "hint": {
+              "en": "Channel three (brown)"
+            }
+          },
+          "4": {
+            "hint": {
+              "en": "Channel four (blue)"
+            }
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Channels"
+          },
+          "children": [
+            {
+              "id": "0",
+              "type": "dropdown",
+              "zwave": {
+                "index": 0,
+                "size": 1
+              },
+              "value": "4",
+              "label": {
+                "en": "Channel one (red)"
+              },
+              "hint": {
+                "en": "Parameter #0"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch on/dim up"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle switch on/off"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "Doorbell function (on/off)"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "Toggle shutter lower/raise"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "Lower shutter while pressed"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "Raise shutter while pressed"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "1",
+              "type": "dropdown",
+              "zwave": {
+                "index": 1,
+                "size": 1
+              },
+              "label": {
+                "en": "Channel two (green)"
+              },
+              "value": "0",
+              "hint": {
+                "en": "Parameter #1"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch off/dim down"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle switch on/off"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "type": "dropdown",
+              "zwave": {
+                "index": 2,
+                "size": 1
+              },
+              "label": {
+                "en": "Channel three (brown)"
+              },
+              "value": "4",
+              "hint": {
+                "en": "Parameter #2"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch on/dim up"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle switch on/off"
+                  }
+                },
+                {
+                  "id": "44",
+                  "label": {
+                    "en": "Doorbell function (on/off)"
+                  }
+                },
+                {
+                  "id": "54",
+                  "label": {
+                    "en": "Toggle shutter lower/raise"
+                  }
+                },
+                {
+                  "id": "52",
+                  "label": {
+                    "en": "Lower shutter while pressed"
+                  }
+                },
+                {
+                  "id": "55",
+                  "label": {
+                    "en": "Raise shutter while pressed"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "type": "dropdown",
+              "zwave": {
+                "index": 3,
+                "size": 1
+              },
+              "label": {
+                "en": "Channel four (blue)"
+              },
+              "value": "0",
+              "hint": {
+                "en": "Parameter #3"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Switch off/dim down"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Toggle switch on/off"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MTN507501",
+      "name": {
+        "en": "Radio receiver, 1-gang switch"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/MTN507501/assets/images/large.png",
+        "small": "/drivers/MTN507501/assets/images/small.png"
+      },
+      "zwave": {
+        "manufacturerId": 122,
+        "productTypeId": 32769,
+        "productId": 32770,
+        "learnmode": {
+          "image": "/drivers/MTN507501/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the Z-Wave button on your device three times"
+          }
+        },
+        "associationGroups": [
+          1,
+          2
+        ]
+      },
+      "settings": [
+        {
+          "id": "176",
+          "type": "number",
+          "zwave": {
+            "index": 176,
+            "size": 1
+          },
+          "label": {
+            "en": "Staircase timer"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max":  127
+          },
+          "hint": {
+            "en": ""
+          }
+        },
+        {
+          "id": "177",
+          "type": "number",
+          "zwave": {
+            "index": 177,
+            "size": 1
+          },
+          "label": {
+            "en": "Staircase timer"
+          },
+          "value": 0,
+          "min": 0,
+          "hint": {
+            "en": ""
+          }
+        },
+        {
+          "id": "183",
+          "type": "number",
+          "zwave": {
+            "index": 183,
+            "size": 1
+          },
+          "label": {
+            "en": "Additional limit duration (after brief interruption)"
+          },
+          "value": 0,
+          "min": 0,
+          "hint": {
+            "en": ""
+          }
+        }
+      ]
+    },
     {
       "id": "MTN507900",
       "name": {
@@ -55,7 +363,7 @@
         "learnmode": {
           "image": "/drivers/MTN507900/assets/learnmode.svg",
           "instruction": {
-            "en": "Press the Z-Wave button on your dimmer three times"
+            "en": "Press the Z-Wave button on your device three times"
           }
         },
         "associationGroups": [
@@ -72,7 +380,7 @@
             "size": 1
           },
           "label": {
-            "en": "Dimming Speed"
+            "en": "Dimming speed"
           },
           "value": 0,
           "min": 0,
@@ -152,25 +460,25 @@
                 {
                   "id": "44",
                   "label": {
-                    "en": "Doorbell function"
+                    "en": "Doorbell function (on/off)"
                   }
                 },
                 {
                   "id": "54",
                   "label": {
-                    "en": "Toggle shutter up/down"
+                    "en": "Toggle shutter lower/raise"
                   }
                 },
                 {
                   "id": "52",
                   "label": {
-                    "en": "Lower shutter on press"
+                    "en": "Lower shutter while pressed"
                   }
                 },
                 {
                   "id": "55",
                   "label": {
-                    "en": "Raise shutter on press"
+                    "en": "Raise shutter while pressed"
                   }
                 }
               ]
@@ -249,7 +557,7 @@
                 {
                   "id": "4",
                   "label": {
-                    "en": "Toggle on/off"
+                    "en": "Toggle switch on/off"
                   }
                 },
                 {
@@ -261,25 +569,25 @@
                 {
                   "id": "44",
                   "label": {
-                    "en": "Doorbell function"
+                    "en": "Doorbell function (on/off)"
                   }
                 },
                 {
                   "id": "54",
                   "label": {
-                    "en": "Toggle shutter up/down"
+                    "en": "Toggle shutter lower/raise"
                   }
                 },
                 {
                   "id": "52",
                   "label": {
-                    "en": "Lower shutter on press"
+                    "en": "Lower shutter while pressed"
                   }
                 },
                 {
                   "id": "55",
                   "label": {
-                    "en": "Raise shutter on press"
+                    "en": "Raise shutter while pressed"
                   }
                 }
               ]
@@ -308,7 +616,7 @@
                 {
                   "id": "4",
                   "label": {
-                    "en": "Toggle on/off"
+                    "en": "Toggle switch on/off"
                   }
                 },
                 {
@@ -320,25 +628,25 @@
                 {
                   "id": "44",
                   "label": {
-                    "en": "Doorbell function"
+                    "en": "Doorbell function (on/off)"
                   }
                 },
                 {
                   "id": "54",
                   "label": {
-                    "en": "Toggle shutter up/down"
+                    "en": "Toggle shutter lower/raise"
                   }
                 },
                 {
                   "id": "52",
                   "label": {
-                    "en": "Lower shutter on press"
+                    "en": "Lower shutter while pressed"
                   }
                 },
                 {
                   "id": "55",
                   "label": {
-                    "en": "Raise shutter on press"
+                    "en": "Raise shutter while pressed"
                   }
                 }
               ]
@@ -429,7 +737,7 @@
                 {
                   "id": "4",
                   "label": {
-                    "en": "Toggle on/off"
+                    "en": "Toggle switch on/off"
                   }
                 },
                 {
@@ -441,25 +749,25 @@
                 {
                   "id": "44",
                   "label": {
-                    "en": "Doorbell function"
+                    "en": "Doorbell function (on/off)"
                   }
                 },
                 {
                   "id": "54",
                   "label": {
-                    "en": "Toggle shutter up/down"
+                    "en": "Toggle shutter lower/raise"
                   }
                 },
                 {
                   "id": "52",
                   "label": {
-                    "en": "Lower shutter on press"
+                    "en": "Lower shutter while pressed"
                   }
                 },
                 {
                   "id": "55",
                   "label": {
-                    "en": "Raise shutter on press"
+                    "en": "Raise shutter while pressed"
                   }
                 }
               ]
@@ -488,7 +796,7 @@
                 {
                   "id": "4",
                   "label": {
-                    "en": "Toggle on/off"
+                    "en": "Toggle switch on/off"
                   }
                 },
                 {
@@ -500,25 +808,25 @@
                 {
                   "id": "44",
                   "label": {
-                    "en": "Doorbell function"
+                    "en": "Doorbell function (on/off)"
                   }
                 },
                 {
                   "id": "54",
                   "label": {
-                    "en": "Toggle shutter up/down"
+                    "en": "Toggle shutter lower/raise"
                   }
                 },
                 {
                   "id": "52",
                   "label": {
-                    "en": "Lower shutter on press"
+                    "en": "Lower shutter while pressed"
                   }
                 },
                 {
                   "id": "55",
                   "label": {
-                    "en": "Raise shutter on press"
+                    "en": "Raise shutter while pressed"
                   }
                 }
               ]
@@ -547,7 +855,7 @@
                 {
                   "id": "4",
                   "label": {
-                    "en": "Toggle on/off"
+                    "en": "Toggle switch on/off"
                   }
                 },
                 {
@@ -559,25 +867,25 @@
                 {
                   "id": "44",
                   "label": {
-                    "en": "Doorbell function"
+                    "en": "Doorbell function (on/off)"
                   }
                 },
                 {
                   "id": "54",
                   "label": {
-                    "en": "Toggle shutter up/down"
+                    "en": "Toggle shutter lower/raise"
                   }
                 },
                 {
                   "id": "52",
                   "label": {
-                    "en": "Lower shutter on press"
+                    "en": "Lower shutter while pressed"
                   }
                 },
                 {
                   "id": "55",
                   "label": {
-                    "en": "Raise shutter on press"
+                    "en": "Raise shutter while pressed"
                   }
                 }
               ]
@@ -606,7 +914,7 @@
                 {
                   "id": "4",
                   "label": {
-                    "en": "Toggle on/off"
+                    "en": "Toggle switch on/off"
                   }
                 },
                 {
@@ -618,25 +926,25 @@
                 {
                   "id": "44",
                   "label": {
-                    "en": "Doorbell function"
+                    "en": "Doorbell function (on/off)"
                   }
                 },
                 {
                   "id": "54",
                   "label": {
-                    "en": "Toggle shutter up/down"
+                    "en": "Toggle shutter lower/raise"
                   }
                 },
                 {
                   "id": "52",
                   "label": {
-                    "en": "Lower shutter on press"
+                    "en": "Lower shutter while pressed"
                   }
                 },
                 {
                   "id": "55",
                   "label": {
-                    "en": "Raise shutter on press"
+                    "en": "Raise shutter while pressed"
                   }
                 }
               ]

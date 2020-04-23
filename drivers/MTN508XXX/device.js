@@ -7,11 +7,7 @@ var startDimValue = -1;
 var endDimValue = -1;
 var isDimmingDown = false;
 
-//**********************************************************************
-//
-// MTN508XXX
-//
-//**********************************************************************
+// MTN508XXX, Radio push-button, Move
 class MTN508XXX extends ZwaveDevice {
 
     // This device has no capabilities of its own.
@@ -20,31 +16,19 @@ class MTN508XXX extends ZwaveDevice {
     // - On/off commands
     // - Dim up/dim down commands
 
-    //**********************************************************************
-    // onAdded
-    //**********************************************************************
     async onAdded() {
         // This device has just been added by Homey
         this.log('Device: onAdded...');
     }
 
-    //**********************************************************************
-    // onDeleted
-    //**********************************************************************
     async onDeleted() {
         // This device has just been deleted by Homey
         this.log('Device: onDeleted...');
     }
 
-    //**********************************************************************
-    // onMeshInit
-    //**********************************************************************
     SendCommand() {
     }
 
-    //**********************************************************************
-    // onMeshInit
-    //**********************************************************************
     async onMeshInit() {
 this.log('Device: onMeshInit...');
         // Enable debugging
@@ -194,52 +178,9 @@ this.log('...getNode');
     // onSettings
     //**********************************************************************
     async onSettings(oldSettings, newSettings, changedKeysArr) {
-this.log('onSettings...');
-        // Runs when the user has changed the device's settings in Homey.
-        // changedKeysArr contains an array of keys that have been changed
-
-        // If the settings must not be saved for whatever reason:
-        // throw new Error('Your error message');
-
-//this.log(oldSettingsObj, newSettingsObj, changedKeysArr);
-
-        //var arrayLength = changedKeysArr.length;
-//this.log(arrayLength);
-        /*
-        //----------------------------------------------------------------------
-        // Send the changed settings values to the device
-        //----------------------------------------------------------------------
-        for (var i = 0; i < arrayLength; i++) {
-            var key = changedKeysArr[i];
-            var idx = Number(key);
-            var newValue = newSettingsObj[key];
-
-            this.configurationSet(
-                {
-                    "index": idx,
-                    "size": 1,
-                    "id": key,
-                    "signed": false,
-                    "useSettingParser": true
-                },
-                newValue
-            )
-                .catch(this.error);
-        }
-        */
         super.onSettings(oldSettings, newSettings, changedKeysArr);
-
-this.log('...onSettings');
     }
 
-    /*
-    //**********************************************************************
-    // ready
-    //**********************************************************************
-    ready(callback) {
-this.log('Device: ready...');
-    }
-    */
 }
 
 module.exports = MTN508XXX;

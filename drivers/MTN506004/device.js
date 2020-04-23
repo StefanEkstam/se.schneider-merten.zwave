@@ -3,12 +3,8 @@
 const Homey = require('homey');
 const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
 
-var startDimValue = -1;
-var endDimValue = -1;
-var isDimmingDown = false;
-
-// MTN50X1XX, Radio push-button, 1-gang
-class MTN50X1XX extends ZwaveDevice {
+// MTN506004, Radio transmitter, 4-gang
+class MTN506004 extends ZwaveDevice {
 
     // This device has no capabilities of its own.
     // It can not receive any specific commands.
@@ -18,12 +14,12 @@ class MTN50X1XX extends ZwaveDevice {
 
     async onAdded() {
         // This device has just been added by Homey
-        this.log('Device: onAdded...');
+        this.log('MTN506004: ZwaveDevice.onAdded...');
     }
 
     async onDeleted() {
         // This device has just been deleted by Homey
-        this.log('Device: onDeleted...');
+        this.log('MTN506004: ZwaveDevice.onDeleted...');
     }
 
     SendCommand() {
@@ -35,7 +31,8 @@ this.log('Device: onMeshInit...');
         this.enableDebug();
 
         // Print information about the device's available commands
-        //this.printNode();
+        this.printNode();
+
 
         /*
         this.registerCapability(
@@ -43,6 +40,7 @@ this.log('Device: onMeshInit...');
             'BATTERY'
         );
         */
+
 
 /*        
         // External On/off commands will be handled automatically by Homey
@@ -181,6 +179,10 @@ this.log('setSettings...');
             .catch(this.error);
 */
 
+        //----------------------------------------------------------------------
+        // Initialize the settings on the device
+        // This is only necessary if the settings have been altered from the defaults
+        //----------------------------------------------------------------------
         //const settings = this.getSettings();
 //this.log(settings);
         //var changedKeysArr = ['196'];
@@ -222,10 +224,10 @@ this.log('STEK: configurationGet...');
         );
         this.log(xxx);
 */
-
-        var node = this.node;
-/*
 this.log('getNode...');
+
+
+/*
         Homey.ManagerZwave.getNode(this)
             .catch(node => {
                 this.log("STEK: Error, first catch!");
@@ -286,7 +288,7 @@ this.log('getNode...');
                 this.error;
             });
         */
-
+        /*
         node.CommandClass.COMMAND_CLASS_ASSOCIATION.ASSOCIATION_GET({
         })
             .then(x => {
@@ -310,7 +312,7 @@ this.log('getNode...');
                 this.log("STEK: Error, second catch (MIAG)!");
                 this.error;
             });
-
+        */
                 /*
                 // Inget fel, men returnerar null
                 node.CommandClass.COMMAND_CLASS_VERSION.VERSION_COMMAND_CLASS_GET({
@@ -569,13 +571,17 @@ this.log('STEK: ...Send commands');
 this.log('...getNode');
     }
 
-    //**********************************************************************
-    // onSettings
-    //**********************************************************************
-    async onSettings(oldSettings, newSettings, changedKeysArr) {
+    async onSettings_xxx(oldSettings, newSettings, changedKeysArr) {
+this.log('onSettings...');
+        // Runs when the user has changed the device's settings in Homey.
+        // changedKeysArr contains an array of keys that have been changed
+
+        // If the settings must not be saved for whatever reason:
+        // throw new Error('Your error message');
         super.onSettings(oldSettings, newSettings, changedKeysArr);
+this.log('...onSettings');
     }
 
 }
 
-module.exports = MTN50X1XX;
+module.exports = MTN506004;

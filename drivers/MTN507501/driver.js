@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 
-class MTN508XXX extends Homey.Driver {
+class MTN507501 extends Homey.Driver {
 
     onInit() {
         super.onInit();
@@ -10,4 +10,4 @@ class MTN508XXX extends Homey.Driver {
 
 }
 
-module.exports = MTN508XXX;
+module.exports = MTN507501;
