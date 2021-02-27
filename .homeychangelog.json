@@ -1,5 +1,8 @@
 {
   "0.9.1": {
     "en": "Schneider/Merten Connect ZWave device support"
+  },
+  "0.9.2": {
+    "en": "Updated npm packages"
   }
 }

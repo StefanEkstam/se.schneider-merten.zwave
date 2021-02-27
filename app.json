@@ -1,8 +1,8 @@
 {
   "id": "se.schneider-connect.zwave",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "sdk": 3,
-  "brandcolor":  "#330000",
+  "brandcolor": "#330000",
   "name": {
     "en": "Schneider/Merten Connect"
   },
@@ -14,7 +14,14 @@
     "lights"
   ],
   "tags": {
-    "en": [ "schneider", "merten", "schneider connect", "merten connect", "zwave", "Z-Wave" ]
+    "en": [
+      "schneider",
+      "merten",
+      "schneider connect",
+      "merten connect",
+      "zwave",
+      "Z-Wave"
+    ]
   },
   "images": {
     "large": "/assets/images/large.png",
@@ -40,8 +47,7 @@
       "name": {
         "en": "Radio transmitter, 4-gang"
       },
-      "capabilities": [
-      ],
+      "capabilities": [],
       "images": {
         "large": "/drivers/MTN506004/assets/images/large.png",
         "small": "/drivers/MTN506004/assets/images/small.png"
@@ -302,7 +308,7 @@
           "value": 0,
           "attr": {
             "min": 0,
-            "max":  127
+            "max": 127
           },
           "hint": {
             "en": ""
@@ -396,8 +402,7 @@
       "name": {
         "en": "Radio push-button, Move"
       },
-      "capabilities": [
-      ],
+      "capabilities": [],
       "images": {
         "large": "/drivers/MTN508XXX/assets/images/large.png",
         "small": "/drivers/MTN508XXX/assets/images/small.png"
@@ -493,8 +498,7 @@
       "name": {
         "en": "Radio push-button, 1-gang"
       },
-      "capabilities": [
-      ],
+      "capabilities": [],
       "images": {
         "large": "/drivers/MTN50X1XX/assets/images/large.png",
         "small": "/drivers/MTN50X1XX/assets/images/small.png"
@@ -661,8 +665,7 @@
       "name": {
         "en": "Radio push-button, 2-gang"
       },
-      "capabilities": [
-      ],
+      "capabilities": [],
       "images": {
         "large": "/drivers/MTN50X2XX/assets/images/large.png",
         "small": "/drivers/MTN50X2XX/assets/images/small.png"
