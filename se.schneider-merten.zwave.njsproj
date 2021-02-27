@@ -354,6 +354,7 @@
     <Content Include="node_modules\mumath\wrap.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
