@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
+const ZwaveDevice = require('homey-zwavedriver').ZwaveDevice;
 
 var startDimValue = -1;
 var endDimValue = -1;
@@ -29,7 +29,7 @@ class MTN50X2XX extends ZwaveDevice {
     SendCommand() {
     }
 
-    async onMeshInit() {
+    async onNodeInit() {
         // Enable debugging
         this.enableDebug();
 

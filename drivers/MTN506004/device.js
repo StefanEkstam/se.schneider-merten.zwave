@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
+const ZwaveDevice = require('homey-zwavedriver').ZwaveDevice;
 
 // MTN506004, Radio transmitter, 4-gang
 class MTN506004 extends ZwaveDevice {
@@ -25,13 +25,13 @@ class MTN506004 extends ZwaveDevice {
     SendCommand() {
     }
 
-    async onMeshInit() {
-this.log('Device: onMeshInit...');
+    async onNodeInit() {
+this.log('Device: onNodeInit...');
         // Enable debugging
         this.enableDebug();
 
         // Print information about the device's available commands
-        this.printNode();
+        //this.printNode();
 
 
         /*

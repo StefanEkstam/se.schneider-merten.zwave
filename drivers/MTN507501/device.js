@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
+const ZwaveDevice = require('homey-zwavedriver').ZwaveDevice;
 
 // MTN507501, Radio receiver, 1-gang switch
 class MTN507501 extends ZwaveDevice {
@@ -16,7 +16,7 @@ class MTN507501 extends ZwaveDevice {
         this.log('MTN507501: ZwaveDevice.onDeleted...');
     }
 
-    async onMeshInit() {
+    async onNodeInit() {
         // Enable debugging
         this.enableDebug();
 

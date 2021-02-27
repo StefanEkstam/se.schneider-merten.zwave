@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
+const ZwaveDevice = require('homey-zwavedriver').ZwaveDevice;
 
 var startDimValue = -1;
 var endDimValue = -1;
@@ -29,8 +29,8 @@ class MTN50X1XX extends ZwaveDevice {
     SendCommand() {
     }
 
-    async onMeshInit() {
-this.log('Device: onMeshInit...');
+    async onNodeInit() {
+this.log('Device: onNodeInit...');
         // Enable debugging
         this.enableDebug();
 
@@ -286,7 +286,7 @@ this.log('getNode...');
                 this.error;
             });
         */
-
+/*
         node.CommandClass.COMMAND_CLASS_ASSOCIATION.ASSOCIATION_GET({
         })
             .then(x => {
@@ -310,7 +310,7 @@ this.log('getNode...');
                 this.log("STEK: Error, second catch (MIAG)!");
                 this.error;
             });
-
+*/
                 /*
                 // Inget fel, men returnerar null
                 node.CommandClass.COMMAND_CLASS_VERSION.VERSION_COMMAND_CLASS_GET({

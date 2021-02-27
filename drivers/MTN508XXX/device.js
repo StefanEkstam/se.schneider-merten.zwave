@@ -1,13 +1,14 @@
 'use strict';
 
 const Homey = require('homey');
-const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
+const ZwaveDevice = require('homey-zwavedriver').ZwaveDevice;
 
 var startDimValue = -1;
 var endDimValue = -1;
 var isDimmingDown = false;
 
 // MTN508XXX, Radio push-button, Move
+// 2021-02-27/STEK: Updated to use SDK 3.0 with Homey 5.0.0
 class MTN508XXX extends ZwaveDevice {
 
     // This device has no capabilities of its own.
@@ -29,8 +30,8 @@ class MTN508XXX extends ZwaveDevice {
     SendCommand() {
     }
 
-    async onMeshInit() {
-this.log('Device: onMeshInit...');
+    async onNodeInit() {
+this.log('Device: onNodeInit...');
         // Enable debugging
         this.enableDebug();
 
@@ -146,7 +147,7 @@ this.log('getNode...');
                 this.error;
             });
         */
-
+        /*
         node.CommandClass.COMMAND_CLASS_ASSOCIATION.ASSOCIATION_GET({
         })
             .then(x => {
@@ -170,7 +171,7 @@ this.log('getNode...');
                 this.log("STEK: Error, second catch (MIAG)!");
                 this.error;
             });
-
+        */
 this.log('...getNode');
     }
 
