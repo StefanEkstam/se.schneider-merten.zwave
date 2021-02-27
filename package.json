@@ -1,6 +1,6 @@
 {
   "name": "se.schneider-merten.zwave",
-  "version": "0.0.5",
+  "version": "0.9.1",
   "description": "se.schneider-merten.zwave",
   "main": "app.js",
   "author": {
