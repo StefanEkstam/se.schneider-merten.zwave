@@ -1,6 +1,6 @@
 {
   "id": "se.schneider-connect.zwave",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "sdk": 3,
   "brandcolor": "#330000",
   "name": {
