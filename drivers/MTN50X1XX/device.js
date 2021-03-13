@@ -14,7 +14,8 @@ class MTN50X1XX extends ZwaveDevice {
     // It can not receive any specific commands.
     // It simply works as a sending device, that can send
     // - On/off commands
-    // - Dim up/dim down commands
+    // - Dim up/dim down commands (only works when directly associated with a Scheider/Merten dimmer device)
+    // - Window blind commands
 
     async onAdded() {
         // This device has just been added by Homey
@@ -26,64 +27,66 @@ class MTN50X1XX extends ZwaveDevice {
         this.log('Device: onDeleted...');
     }
 
-    SendCommand() {
-    }
-
     async onNodeInit() {
-this.log('Device: onNodeInit...');
+        this.log('Device: onNodeInit...');
         // Enable debugging
         this.enableDebug();
 
         // Print information about the device's available commands
-        //this.printNode();
+        this.printNode();
 
-        /*
-        this.registerCapability(
-            'measure_battery',
-            'BATTERY'
-        );
-        */
+        var node = this.node;
 
-/*        
-        // External On/off commands will be handled automatically by Homey
-        this.registerCapability(
-            'onoff',
-            'SWITCH_MULTILEVEL', {
-                'report': 'SWITCH_MULTILEVEL_SET'
-            }
-        );
+        node.CommandClass.COMMAND_CLASS_BASIC.on('report', (command, report) => {
+            if (report.hasOwnProperty('Value (Raw)')) {
+                let value = report['Value (Raw)'][0];
+                this.log(value);
 
-/*
-this.log("registerCapability onoff...");
-        this.registerCapability(
-            'onoff',
-            'SWITCH_MULTILEVEL', {
-                'report': 'SWITCH_MULTILEVEL_SET',
-                'reportParserOverride': true,
-                'reportParser': (report) => {
-this.log("STEK, report: ", report);
-/*
-                    var luminance = 0;
-                    if (report['Sensor Type'] === 'Luminance (version 1)') {
-                        luminance = Number(report['Sensor Value (Parsed)']);
-                    }
-* /
-return { 'Value': 255 };
+                /*
+                let testStartTrigger = this.homey.flow.getTriggerCard(value === 0 ? 'off_button_pressed' : 'on_button_pressed');
+                testStartTrigger.trigger()
+                    .catch(this.error)
+                    .then(this.log('...triggered'));
+                */
+
+                let device = this;
+                let tokens = {};
+                let state = {};
+
+                if (value === 0) {
+                    this.driver.triggerOffButtonPressed(device, tokens, state);
+                }
+                else {
+                    this.driver.triggerOnButtonPressed(device, tokens, state);
                 }
             }
-        );
-*/
+        });
 
-/*
-        // External dimming commands will be handled automatically by Homey,
-        // though not perfectly, since the remembered dim value will sometimes
-        // be overwritten
-        this.registerCapability(
-            'dim',
-            'SWITCH_MULTILEVEL', {
-                'report': 'SWITCH_MULTILEVEL_SET'
+        node.CommandClass.COMMAND_CLASS_BASIC_WINDOW_COVERING.on('report', (command, report) => {
+            this.log(command.name);
+            let level = 0;
+            if (report.hasOwnProperty('Level (Raw)')) {
+                level = report['Level (Raw)'][0];
             }
-        );
+
+            let device = this;
+            let tokens = {};
+            let state = {};
+
+            switch (command.name) {
+                case 'BASIC_WINDOW_COVERING_START_LEVEL_CHANGE':
+                    if (level === 0) {
+                        this.driver.triggerRaiseShutterButtonPressed(device, tokens, state);
+                    }
+                    else {
+                        this.driver.triggerLowerShutterButtonPressed(device, tokens, state);
+                    }
+                    break;
+                case 'BASIC_WINDOW_COVERING_STOP_LEVEL_CHANGE':
+                    this.driver.triggerRaiseOrLowerShutterButtonReleased(device, tokens, state);
+                    break;
+            }
+        });
 
 /*
         this.registerReportListener(
@@ -93,29 +96,13 @@ return { 'Value': 255 };
                     return true;
                 }
                 
-this.log("========== SWITCH_MULTILEVEL_SET called...", rawReport, parsedReport);
                 var value = rawReport['Value (Raw)'][0];
 
-this.log("Value from SWITCH_MULTILEVEL_SET: ", value);
+                this.log("Value from SWITCH_MULTILEVEL_SET: ", value);
                 if (value === 0 || value === 255) {
                     // On or off, do not change the dim value
                     return true;
                 }
-/*
-                this.node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL.SWITCH_MULTILEVEL_GET({
-                })
-                    .then(x => {
-                        this.log("STEK: Log, second (SMG)!");
-                        var value = x['Value (Raw)'][0];
-this.log("Value from SWITCH_MULTILEVEL_GET: ", value);
-                        endDimValue = value / 63;
-this.log("endDimValue: ", endDimValue);
-                        //this.setCapabilityValue('dim', endDimValue);
-                    })
-                    .catch(x => {
-                        this.error;
-                    });
-* /
 
                 var endDimValue = -1;
                 if (value === 0) {
@@ -149,81 +136,6 @@ this.log("endDimValue: ", endDimValue);
         );
 */
 
-/*
-        this.registerCapabilityListener(
-            'onoff', (value, opts) => {
-                this.log("STEK: rcl onoff...");
-            }
-        );
-
-        this.registerCapabilityListener(
-            'dim', (value, opts) => {
-                this.log("STEK: rcl dim...");
-            }
-        );
-*/
-
-
-/*
-        this.registerCapabilityListener('measure_temperature', (value, opts) => {
-            return Promise.resolve();
-        });
-*/
-
-        // Test: Set settings
-/*
-this.log('setSettings...');
-        this.setSettings({
-            3: false,
-            "zw_wakeup_interval": 360,
-            "zw_wakeup_enabled": true
-        })
-            .catch(this.error);
-*/
-
-        //const settings = this.getSettings();
-//this.log(settings);
-        //var changedKeysArr = ['196'];
-        //this.onSettings(settings, settings, changedKeysArr);
-
-/*
-this.log('triggerCapabilityListener...');
-        this.triggerCapabilityListener('measure_temperature', 35);
-*/
-/*
-this.log('STEK: configurationGet...');
-        var xxx = await this.configurationGet(
-            {
-                "index": 196
-            }
-        );
-        this.log(xxx);
-*/
-        /*
-        await this.configurationSet(
-            {
-                "index": 196,
-                "size": 1,
-                "id": "196",
-                "signed": false,
-                "useSettingParser": true
-            },
-            200
-        );
-*/
-
-        //await this.configurationSet({ id: '0' }, 1);
-
-/*
-        var xxx = await this.configurationGet(
-            {
-                "index": 196
-            }
-        );
-        this.log(xxx);
-*/
-
-        var node = this.node;
 /*
 this.log('getNode...');
         Homey.ManagerZwave.getNode(this)
@@ -540,15 +452,10 @@ this.log('getNode...');
             });
 */
 
-        //this.setCapabilityValue('onoff', true);
-
 /*
         Homey.ManagerZwave.getNode(this)
             .then(node => {
-//this.log(node);
-//this.log(node.CommandClass);
-//this.log(node.CommandClass['COMMAND_CLASS_VERSION']);
-this.log('STEK: Send commands...');
+                this.log('STEK: Send commands...');
                 //node.CommandClass['COMMAND_CLASS_BASIC'].BASIC_GET();
                 //node.CommandClass['COMMAND_CLASS_VERSION'].VERSION_GET();
                 //node.CommandClass['COMMAND_CLASS_MANUFACTURER_SPECIFIC'].MANUFACTURER_SPECIFIC_GET();
@@ -558,21 +465,18 @@ this.log('STEK: Send commands...');
                 node.CommandClass['COMMAND_CLASS_SWITCH_ALL'].SWITCH_ALL_OFF(0);
                 node.CommandClass['COMMAND_CLASS_VERSION'].VERSION_GET(0);
                 node.CommandClass['COMMAND_CLASS_CONFIGURATION'].CONFIGURATION_GET(0);
-this.log('STEK: ...Send commands');
+                this.log('STEK: ...Send commands');
             }, node => {
                 this.log('Rejected?');
             }
             );
 */
-
-
-this.log('...getNode');
     }
 
     //**********************************************************************
     // onSettings
     //**********************************************************************
-    async onSettings(oldSettings, newSettings, changedKeysArr) {
+    async onSettings_xxx(oldSettings, newSettings, changedKeysArr) {
         super.onSettings(oldSettings, newSettings, changedKeysArr);
     }
 

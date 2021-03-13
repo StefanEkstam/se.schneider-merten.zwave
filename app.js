@@ -6,6 +6,7 @@ const Homey = require('homey');
 class SchneiderMertenApp extends Homey.App {
 
 	onInit() {
+		this.log(`${Homey.manifest.id} running...`);
 	}
 
 }
