@@ -1,6 +1,6 @@
 {
   "id": "se.schneider-connect.zwave",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "sdk": 3,
   "brandcolor": "#330000",
   "name": {
@@ -37,6 +37,96 @@
       {
         "name": "Stefan Ekstam",
         "email": "stefan.ekstam@digitalkraft.se"
+      }
+    ]
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "test_start",
+        "title": {
+          "en": "It starts testing"
+        }
+      },
+      {
+        "id": "on_button_pressed",
+        "title": {
+          "en": "On button pressed"
+        },
+        "hint": {
+          "en": "This card will trigger when a button set to 'Switch on/dim up' is pressed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MTN50X1XX|MTN50X2XX"
+          }
+        ]
+      },
+      {
+        "id": "off_button_pressed",
+        "title": {
+          "en": "Off button pressed"
+        },
+        "hint": {
+          "en": "This card will trigger when a button set to 'Switch off/dim down' is pressed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MTN50X1XX|MTN50X2XX"
+          }
+        ]
+      },
+      {
+        "id": "start_raising_shutter",
+        "title": {
+          "en": "Raise shutter button pressed"
+        },
+        "hint": {
+          "en": "This card will trigger when a button set to 'Raise shutter while pressed' or 'Toggle shutter lower/raise' is pressed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MTN50X1XX|MTN50X2XX"
+          }
+        ]
+      },
+      {
+        "id": "start_lowering_shutter",
+        "title": {
+          "en": "Lower shutter button pressed"
+        },
+        "hint": {
+          "en": "This card will trigger when a button set to 'Lower shutter while pressed' or 'Toggle shutter lower/raise' is pressed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MTN50X1XX|MTN50X2XX"
+          }
+        ]
+      },
+      {
+        "id": "stop_moving_shutter",
+        "title": {
+          "en": "Raise or lower shutter button released"
+        },
+        "hint": {
+          "en": "This card will trigger when a button set to 'Raise shutter while pressed', 'Lower shutter while pressed' or 'Toggle shutter lower/raise' is released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MTN50X1XX|MTN50X2XX"
+          }
+        ]
       }
     ]
   },
